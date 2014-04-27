@@ -4,13 +4,13 @@ import akka.dispatch._
 import akka.actor.{ActorSystem, ActorRef}
 import com.typesafe.config.Config
 
-trait QueueCapacity {
+trait ForgetFulQueueSemantics {
   def capacity: Int
 }
 
 object ForgetfulMailbox {
 
-  class Q(val capacity: Int) extends MessageQueue with QueueCapacity {
+  class Q(val capacity: Int) extends MessageQueue with ForgetFulQueueSemantics {
 
     val queue = new ForgetfulQueue[Envelope](capacity)
     override def cleanUp(owner: ActorRef, deadLetters: MessageQueue): Unit = {
