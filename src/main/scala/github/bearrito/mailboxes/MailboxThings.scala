@@ -10,7 +10,7 @@ trait ForgetfulQueueSemantics {
 
 object ForgetfulMailbox {
 
-  class Q(val capacity: Int) extends MessageQueue with ForgetFulQueueSemantics {
+  class Q(val capacity: Int) extends MessageQueue with ForgetfulQueueSemantics {
 
     val queue = new ForgetfulQueue[Envelope](capacity)
     override def cleanUp(owner: ActorRef, deadLetters: MessageQueue): Unit = {
