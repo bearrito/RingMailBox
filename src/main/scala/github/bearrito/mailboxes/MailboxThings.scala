@@ -4,7 +4,7 @@ import akka.dispatch._
 import akka.actor.{ActorSystem, ActorRef}
 import com.typesafe.config.Config
 
-trait ForgetFulQueueSemantics {
+trait ForgetfulQueueSemantics {
   def capacity: Int
 }
 
